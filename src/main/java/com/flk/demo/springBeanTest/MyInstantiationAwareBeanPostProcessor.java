@@ -24,6 +24,9 @@ public class MyInstantiationAwareBeanPostProcessor extends
     }
 
     // 接口方法、实例化Bean之前调用
+    // 如果返回了bean实例, 则会替代原来正常通过target bean生成的bean的流程
+    // 典型的例如aop返回proxy对象. 此时bean的执行流程将会缩短,
+    // 只会执行 BeanPostProcessor#postProcessAfterInitialization接口完成初始化。
     @Override
     public Object postProcessBeforeInstantiation(Class beanClass,
                                                  String beanName) throws BeansException {
@@ -32,7 +35,7 @@ public class MyInstantiationAwareBeanPostProcessor extends
         return null;
     }
 
-    // 接口方法、实例化Bean之后调用
+    // 接口方法、实例化Bean之后,和任何初始化(Initialization)之前,调用
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName)
             throws BeansException {
