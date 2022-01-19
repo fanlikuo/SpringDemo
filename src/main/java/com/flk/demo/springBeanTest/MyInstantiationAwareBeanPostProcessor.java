@@ -2,6 +2,7 @@ package com.flk.demo.springBeanTest;
 
 import java.beans.PropertyDescriptor;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessorAdapter;
@@ -11,15 +12,13 @@ import org.springframework.beans.factory.config.InstantiationAwareBeanPostProces
  * @description：TODO
  * @date ：2022/1/18 10:47
  */
-
+@Slf4j
 public class MyInstantiationAwareBeanPostProcessor extends
         InstantiationAwareBeanPostProcessorAdapter {
 
     public MyInstantiationAwareBeanPostProcessor() {
         super();
-        System.out
-                .println("这是InstantiationAwareBeanPostProcessorAdapter实现类构造器！！");
-
+        log.info("这是InstantiationAwareBeanPostProcessorAdapter实现类构造器！！");
         System.out.println("============>实例化InstantiationAwareBeanPostProcessorAdapter实现类");
 
     }
@@ -28,11 +27,8 @@ public class MyInstantiationAwareBeanPostProcessor extends
     @Override
     public Object postProcessBeforeInstantiation(Class beanClass,
                                                  String beanName) throws BeansException {
-        System.out
-                .println("InstantiationAwareBeanPostProcessor调用postProcessBeforeInstantiation方法");
-
+        log.info("InstantiationAwareBeanPostProcessor调用postProcessBeforeInstantiation方法");
         System.out.println("============>执行InstantiationAwareBeanPostProcessor的postProcessBeforeInstantiation方法");
-
         return null;
     }
 
@@ -40,8 +36,7 @@ public class MyInstantiationAwareBeanPostProcessor extends
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName)
             throws BeansException {
-        System.out
-                .println("InstantiationAwareBeanPostProcessor调用postProcessAfterInitialization方法");
+        log.info("InstantiationAwareBeanPostProcessor调用postProcessAfterInitialization方法");
         System.out.println("============>执行InstantiationAwareBeanPostProcessor的postProcessAfterInitialization方法");
 
         return bean;
@@ -52,8 +47,7 @@ public class MyInstantiationAwareBeanPostProcessor extends
     public PropertyValues postProcessPropertyValues(PropertyValues pvs,
                                                     PropertyDescriptor[] pds, Object bean, String beanName)
             throws BeansException {
-        System.out
-                .println("InstantiationAwareBeanPostProcessor调用postProcessPropertyValues方法");
+       log.info("InstantiationAwareBeanPostProcessor调用postProcessPropertyValues方法");
         System.out.println("============>执行InstantiationAwareBeanPostProcessor的postProcessPropertyValues方法");
 
         return pvs;
