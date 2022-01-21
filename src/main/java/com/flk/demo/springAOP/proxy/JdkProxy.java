@@ -8,6 +8,10 @@ import java.lang.reflect.Proxy;
 /**
  * @author ：fanlikuo
  * @description：JDK动态代理实现InvocationHandler接口
+ * java动态代理是利用反射机制生成一个实现代理接口的匿名类，
+ * 在调用具体方法前调用InvokeHandler来处理
+ * 如果目标对象实现了接口，默认情况下会采用JDK的动态代理实现AOP
+ *
  * @date ：2022/1/21 16:37
  */
 public class JdkProxy implements InvocationHandler {

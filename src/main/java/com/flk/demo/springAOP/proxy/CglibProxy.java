@@ -6,10 +6,15 @@ import net.sf.cglib.proxy.MethodInterceptor;
 import net.sf.cglib.proxy.MethodProxy;
 /**
  * @author ：fanlikuo
- * @description：TODO
+ * @description：Cglib动态代理，实现MethodInterceptor接口
+ * cglib动态代理是利用asm开源包，对代理对象类的class文件加载进来，
+ * 通过修改其字节码生成子类来处理
+ * 如果目标对象实现了接口，可以强制使用CGLIB实现AOP
+ * 如果目标对象没有实现了接口，必须采用CGLIB库，
+ * spring会自动在JDK动态代理和CGLIB之间转换
  * @date ：2022/1/21 16:41
  */
-//Cglib动态代理，实现MethodInterceptor接口
+//
 public class CglibProxy implements MethodInterceptor {
     private Object target;//需要代理的目标对象
 
