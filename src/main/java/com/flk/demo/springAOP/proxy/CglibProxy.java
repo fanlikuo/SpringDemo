@@ -38,10 +38,4 @@ public class CglibProxy implements MethodInterceptor {
         return result;
     }
 
-    public static void main(String[] args) {
-        CglibProxy cglib = new CglibProxy();//实例化CglibProxy对象
-        UserManager user =  (UserManager) cglib.getCglibProxy(new UserManagerImpl());//获取代理对象
-        user.delUser("admin");//执行删除方法
-    }
-
 }

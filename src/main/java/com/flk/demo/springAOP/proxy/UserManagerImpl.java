@@ -17,4 +17,8 @@ public class UserManagerImpl implements UserManager {
         System.out.println("调用了删除的方法！");
         System.out.println("传入参数为 userName: "+userName);
     }
+    @Override
+    public final void finalTest(){
+        System.out.println("调用了final的方法！");
+    }
 }
