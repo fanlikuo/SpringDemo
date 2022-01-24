@@ -14,6 +14,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-boot.version>2.3.7.RELEASE</spring-boot.version>
         <asm.version>8.0.1</asm.version>
+        <aspectj.version>1.6.11</aspectj.version>
     </properties>
 
     <dependencies>
@@ -44,7 +45,11 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-
+        <!--使用AspectJ方式注解需要相应的包-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
 
     </dependencies>
 
